@@ -53,3 +53,52 @@
     }
   }
 })();
+
+const scrollElements = document.querySelectorAll(".js-scroll");
+console.log(scrollElements);
+
+const elementInView = (el, dividend = 1) => {
+  const elementTop = el.getBoundingClientRect().right;
+  console.log(elementTop);
+  console.log(
+    elementTop <=
+      (window.innerWidth || document.documentElement.clientWidth) / dividend
+  );
+  return (
+    elementTop <=
+    (window.innerWidth || document.documentElement.clientWidth) / dividend
+  );
+};
+
+const elementOutofView = (el) => {
+  const elementTop = el.getBoundingClientRect().right;
+  console.log(elementTop);
+  console.log(
+    elementTop > (window.innerWidth || document.documentElement.clientWidth)
+  );
+  return (
+    elementTop > (window.innerWidth || document.documentElement.clientWidth)
+  );
+};
+
+const displayScrollElement = (element) => {
+  element.classList.add("scrolled");
+};
+
+const hideScrollElement = (element) => {
+  element.classList.remove("scrolled");
+};
+
+const handleScrollAnimation = () => {
+  scrollElements.forEach((el) => {
+    if (elementInView(el, 0.75)) {
+      displayScrollElement(el);
+    } else if (elementOutofView(el)) {
+      hideScrollElement(el);
+    }
+  });
+};
+
+window.addEventListener("scroll", () => {
+  handleScrollAnimation();
+});
