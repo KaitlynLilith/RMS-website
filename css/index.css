@@ -11,6 +11,24 @@ body {
   font-family: sans-serif;
 }
 
+/* Makes a flex row */
+.flexr {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Makes a flex column */
+.flexc {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Makes flex elements centered */
+.fcenter {
+  justify-content: center;
+  align-items: center;
+}
+
 nav {
   z-index: 10;
   display: flex;
@@ -24,6 +42,8 @@ nav {
   min-height: 5%;
   max-height: 10%;
   color: #0c0410;
+  border: 5px solid #bc96e6;
+  background-color: #fdfffc;
 }
 
 nav div {
@@ -32,11 +52,6 @@ nav div {
 
 #nav-title {
   font-size: 2rem;
-}
-
-h1 {
-  margin: 0;
-  padding: 0;
 }
 
 section {
@@ -50,7 +65,7 @@ section {
 
 header {
   min-width: 99vw;
-  min-height: 50-vh;
+  min-height: 99vh;
   /* border: 10px inset #bc96e6; */
 
   /* border-right: 10px inset #bc96e6;
@@ -278,4 +293,51 @@ main {
 .bottom-row {
   font-size: 4rem;
   align-self: flex-end;
+}
+
+#faqs-holder {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.faqs {
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid var(--black);
+}
+
+.faqs.odd {
+  background-color: var(--silver);
+}
+
+.question-box {
+  padding: 0.5rem;
+  justify-content: space-between;
+}
+
+.question {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.arrow {
+  transform: scaleY(1);
+  width: 1.5rem;
+  transition: all 0.3s;
+}
+
+.arrow.show {
+  transform: scaleY(-1);
+}
+
+.answer-box {
+  display: none;
+  padding: 0.5rem;
+}
+
+.answer-box.show {
+  display: block;
+}
+
+.answer {
 }
